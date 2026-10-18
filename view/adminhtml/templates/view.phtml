@@ -1,0 +1,62 @@
+<?php
+
+declare(strict_types=1);
+
+/** @var \Magento\Backend\Block\Template $block */
+/** @var \Magento\Framework\Escaper $escaper */
+/** @var \MolokaiStudio\LogViewer\ViewModel\LogView $viewModel */
+$viewModel = $block->getData('view_model');
+$downloadUrl = $viewModel->getDownloadUrl();
+?>
+<div class="molokaistudio-log-viewer" id="molokaistudio-log-viewer">
+    <div class="page-actions-buttons" style="margin-bottom: 1.5rem;">
+        <a class="action-default" href="<?= $escaper->escapeUrl($viewModel->getBackUrl()) ?>">
+            <?= $escaper->escapeHtml(__('Back')) ?>
+        </a>
+        <?php if ($downloadUrl !== null): ?>
+            <a class="action-default" href="<?= $escaper->escapeUrl($downloadUrl) ?>">
+                <?= $escaper->escapeHtml(__('Download')) ?>
+            </a>
+        <?php endif; ?>
+        <button type="button" class="action-default" data-role="follow">
+            <?= $escaper->escapeHtml(__('Follow')) ?>
+        </button>
+        <label style="margin-left: 1rem;">
+            <input type="checkbox" data-role="wrap"/>
+            <?= $escaper->escapeHtml(__('Wrap lines')) ?>
+        </label>
+    </div>
+
+    <form data-role="search-form" style="margin-bottom: 1.5rem;">
+        <input type="search" class="admin__control-text" data-role="query" maxlength="200"
+               style="width: 30rem;" placeholder="<?= $escaper->escapeHtmlAttr(__('Search in this file')) ?>"/>
+        <button type="submit" class="action-secondary"><?= $escaper->escapeHtml(__('Search')) ?></button>
+        <button type="button" class="action-default" data-role="clear-search" hidden>
+            <?= $escaper->escapeHtml(__('Back to the log')) ?>
+        </button>
+    </form>
+
+    <p data-role="status" class="note"></p>
+
+    <button type="button" class="action-default" data-role="older" hidden>
+        <?= $escaper->escapeHtml(__('Load older lines')) ?>
+    </button>
+    <button type="button" class="action-default" data-role="earlier-matches" hidden>
+        <?= $escaper->escapeHtml(__('Earlier matches')) ?>
+    </button>
+
+    <!-- Filled by the widget through textContent only: log lines are untrusted text. -->
+    <pre data-role="output"
+         style="height: 65vh; overflow: auto; margin-top: 1rem; padding: 1rem; background: #1e1e1e;
+                color: #d4d4d4; font-size: 1.2rem; line-height: 1.5; white-space: pre;"></pre>
+</div>
+<script type="text/x-magento-init">
+    {
+        "#molokaistudio-log-viewer": {
+            "MolokaiStudio_LogViewer/js/log-view": <?= /* @noEscape */ json_encode(
+                $viewModel->getWidgetConfig(),
+                JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_THROW_ON_ERROR
+            ) ?>
+        }
+    }
+</script>

@@ -1,0 +1,27 @@
+{
+  "name": "molokaistudio/magento2-log-viewer",
+  "description": "Read-only viewer for the var/log files in the Magento 2 admin: tail, page back, live follow, search and download",
+  "type": "magento2-module",
+  "keywords": [
+    "magento2",
+    "magento2-module",
+    "log",
+    "log-viewer",
+    "admin"
+  ],
+  "homepage": "https://github.com/molokaistudiocom/magento2-log-viewer",
+  "license": "MIT",
+  "require": {
+    "php": "^8.3",
+    "magento/framework": "^103.0.7",
+    "magento/module-backend": "^102.0.7"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "MolokaiStudio\\LogViewer\\": ""
+    }
+  }
+}

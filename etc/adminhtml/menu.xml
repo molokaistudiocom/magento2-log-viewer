@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MolokaiStudio_LogViewer::logs"
+             title="Log Viewer"
+             translate="title"
+             module="MolokaiStudio_LogViewer"
+             sortOrder="100"
+             parent="Magento_Backend::system_tools"
+             resource="MolokaiStudio_LogViewer::logs"
+             action="molokaistudio_logviewer/log/index"/>
+    </menu>
+</config>
