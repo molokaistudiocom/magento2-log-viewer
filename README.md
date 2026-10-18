@@ -30,7 +30,7 @@ It never changes or deletes a file.
 ## Installation
 
 ```bash
-composer require molokaistudio/magento2-log-viewer
+composer require molokaistudiocom/magento2-log-viewer
 bin/magento module:enable MolokaiStudio_LogViewer
 bin/magento setup:upgrade
 bin/magento cache:flush

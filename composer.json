@@ -1,5 +1,5 @@
 {
-  "name": "molokaistudio/magento2-log-viewer",
+  "name": "molokaistudiocom/magento2-log-viewer",
   "description": "Read-only viewer for the var/log files in the Magento 2 admin: tail, page back, live follow, search and download",
   "type": "magento2-module",
   "keywords": [
