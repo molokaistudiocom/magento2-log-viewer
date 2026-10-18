@@ -64,6 +64,10 @@ git clone https://github.com/molokaistudiocom/magento2-log-viewer.git app/code/M
 vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist app/code/MolokaiStudio/LogViewer/Test/Unit
 ```
 
+## Author
+
+Made by [Molokai Studio](https://molokaistudio.com).
+
 ## License
 
 [MIT](LICENSE)
